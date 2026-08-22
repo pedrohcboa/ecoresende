@@ -19,8 +19,21 @@ const PointCard = ({ point, isActive, isOpen, onToggle }: PointCardProps) => {
         isActive && "point-card-active shadow-md"
       )}
     >
-      {/* Collapsed header — always visible */}
-      <button onClick={onToggle} className="w-full text-left p-4">
+      {/* Collapsed header — always visible, acts as the toggle */}
+      <div
+        role="button"
+        tabIndex={0}
+        aria-expanded={isOpen}
+        aria-controls={`point-details-${point.id}`}
+        onClick={onToggle}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            onToggle();
+          }
+        }}
+        className="w-full cursor-pointer text-left p-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset"
+      >
         <div className="flex items-start gap-3">
           <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10">
             <MapPin className="h-5 w-5 text-primary" />
@@ -54,11 +67,14 @@ const PointCard = ({ point, isActive, isOpen, onToggle }: PointCardProps) => {
             </div>
           </div>
         </div>
-      </button>
+      </div>
 
       {/* Expanded section */}
       {isOpen && (
-        <div className="border-t border-border px-4 pb-4 pt-3 space-y-3 animate-in fade-in-0 slide-in-from-top-2 duration-200">
+        <div
+          id={`point-details-${point.id}`}
+          className="border-t border-border px-4 pb-4 pt-3 space-y-3 animate-in fade-in-0 slide-in-from-top-2 duration-200"
+        >
           <p className="text-sm text-muted-foreground leading-relaxed">{point.description}</p>
 
           {point.conditions && (
