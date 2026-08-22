@@ -47,6 +47,9 @@
 
     --eco-badge: 152 55% 32%;
     --eco-badge-foreground: 0 0% 100%;
+
+    --marker: 152 55% 42%;
+    --marker-active: 152 55% 32%;
   }
 
   .dark {

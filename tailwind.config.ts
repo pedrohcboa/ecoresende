@@ -61,6 +61,10 @@ export default {
           badge: "hsl(var(--eco-badge))",
           "badge-foreground": "hsl(var(--eco-badge-foreground))",
         },
+        marker: {
+          DEFAULT: "hsl(var(--marker))",
+          active: "hsl(var(--marker-active))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

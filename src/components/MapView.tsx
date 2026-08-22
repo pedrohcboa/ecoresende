@@ -8,7 +8,7 @@ const createIcon = (active: boolean) =>
     html: `<div style="
       width: ${active ? 36 : 28}px;
       height: ${active ? 36 : 28}px;
-      background: ${active ? "hsl(152, 55%, 32%)" : "hsl(152, 55%, 42%)"};
+      background: ${active ? "hsl(var(--marker-active))" : "hsl(var(--marker))"};
       border: 3px solid white;
       border-radius: 50%;
       box-shadow: 0 2px 8px rgba(0,0,0,0.3);
