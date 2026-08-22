@@ -16,15 +16,6 @@ export interface CollectionPoint {
   image?: string;
 }
 
-export interface Review {
-  id: string;
-  pointId: string;
-  author: string;
-  rating: number;
-  comment: string;
-  date: string;
-}
-
 export const collectionPoints: CollectionPoint[] = [
   {
     id: "1",
@@ -120,41 +111,5 @@ export const collectionPoints: CollectionPoint[] = [
     paga: false,
     conditions: "Pode haver limite de volume por descarte.",
     image: aterroVerdeImg,
-  },
-];
-
-// Mock reviews for demo
-export const mockReviews: Review[] = [
-  {
-    id: "r1",
-    pointId: "1",
-    author: "Maria S.",
-    rating: 4,
-    comment: "Fácil de encontrar, pessoal muito atencioso!",
-    date: "2026-03-15",
-  },
-  {
-    id: "r2",
-    pointId: "2",
-    author: "João P.",
-    rating: 5,
-    comment: "Excelente ponto de coleta, aceita muita coisa. Recomendo!",
-    date: "2026-03-20",
-  },
-  {
-    id: "r3",
-    pointId: "2",
-    author: "Ana L.",
-    rating: 4,
-    comment: "Ótimo local, mas às vezes fica cheio nos fins de semana.",
-    date: "2026-03-22",
-  },
-  {
-    id: "r4",
-    pointId: "5",
-    author: "Carlos M.",
-    rating: 5,
-    comment: "Eles pagam um preço justo pelo material. Sempre vou lá.",
-    date: "2026-03-28",
   },
 ];
