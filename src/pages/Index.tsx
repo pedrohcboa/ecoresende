@@ -1,6 +1,7 @@
 import { useState, useCallback, useRef } from "react";
 import { Recycle, Search, LocateFixed } from "lucide-react";
 import { collectionPoints, CollectionPoint } from "@/data/collectionPoints";
+import { haversineDistance } from "@/lib/geo";
 import PointCard from "@/components/PointCard";
 import MapView from "@/components/MapView";
 import InfoCards from "@/components/InfoCards";
@@ -35,7 +36,7 @@ const Index = () => {
         let nearest: CollectionPoint | null = null;
         let minDist = Infinity;
         collectionPoints.forEach((p) => {
-          const d = Math.hypot(p.lat - latitude, p.lng - longitude);
+          const d = haversineDistance(latitude, longitude, p.lat, p.lng);
           if (d < minDist) { minDist = d; nearest = p; }
         });
         if (nearest) {
