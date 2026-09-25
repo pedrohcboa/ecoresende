@@ -5,8 +5,10 @@ categoria, mostra o ponto mais próximo do usuário e traça rota até ele.
 
 Migrado de um protótipo gerado no Lovable para desenvolvimento local. Todo o
 desenvolvimento a partir de agora acontece neste repositório — sem Lovable.
-Deploy: Vercel (frontend) + GitHub. Supabase está disponível para quando o
-backend for adicionado (ver TODO).
+Produção: https://ecoresende.vercel.app (Vercel, projeto `ecoresende`),
+com deploy automático a cada push em `main` e preview por branch/PR.
+A URL `resende-eco-map.lovable.app` é o protótipo legado e está desatualizada.
+Supabase está disponível para quando o backend for adicionado (ver TODO).
 
 ## Stack
 

@@ -4,6 +4,8 @@ Mapa interativo de pontos de coleta e reciclagem em Resende-RJ. Busque por
 nome, endereço ou material, filtre por categoria, veja o ponto mais próximo
 de você e trace a rota até lá.
 
+**🌐 No ar:** https://ecoresende.vercel.app
+
 [![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)](https://vitejs.dev)
 [![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
@@ -74,5 +76,23 @@ Mais detalhes de arquitetura e convenções em [`CLAUDE.md`](./CLAUDE.md).
 
 ## Deploy
 
-Frontend hospedado na [Vercel](https://vercel.com), integrado a este
-repositório no GitHub — todo push em `main` gera um novo deploy.
+Produção: **https://ecoresende.vercel.app** — hospedado na
+[Vercel](https://vercel.com), projeto `ecoresende`.
+
+O repositório está conectado ao projeto na Vercel: todo push em `main` gera
+um deploy de produção, e cada branch/PR ganha uma URL de preview.
+
+Para deployar à mão a partir do repositório local:
+
+```bash
+npx vercel           # preview (URL isolada)
+npx vercel --prod    # produção
+```
+
+O `vercel.json` define o framework (`vite`) e um rewrite catch-all para
+`/index.html`, necessário porque o roteamento é client-side
+(`BrowserRouter`) — sem ele, acessar uma rota direto no browser daria 404
+na CDN em vez de cair no `NotFound`.
+
+A URL antiga do protótipo (`resende-eco-map.lovable.app`) é legado do
+Lovable, não reflete este repositório e pode ser desativada.
